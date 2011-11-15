@@ -8,11 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
-extern NSString *BitlyTwitterOAuthConsumerKey;
-extern NSString *BitlyTwitterOAuthConsumerSecret;
-extern NSString *BitlyTwitterOAuthSuccessCallbackURL;
-
 extern NSString * const BitlyTwitterRequestTokenURL;
 extern NSString * const BitlyTwitterAccessTokenURL;
 extern NSString * const BitlyTwitterAuthorizeURLFormat;
@@ -22,6 +17,9 @@ extern NSString * const BitlyTwitterAuthorizeURLFormat;
 @property(nonatomic, readonly) NSString *bitlyLogin;
 @property(nonatomic, readonly) NSString *bitlyAPIKey;
 
+@property(nonatomic, readonly) NSString *twitterOAuthConsumerKey;
+@property(nonatomic, readonly) NSString *twitterOAuthConsumerSecret;
+@property(nonatomic, readonly) NSString *twitterOAuthSuccessCallbackURL;
 
 + (BitlyConfig *)sharedBitlyConfig;
 
@@ -35,7 +33,7 @@ extern NSString * const BitlyTwitterAuthorizeURLFormat;
 /*These are your api keys to twitter. They can be created at https://dev.twitter.com/apps/ 
 IMPORTANT: You must set a callback URL, even though the user will never see that page. The application will intercept redirects to that URL and act accordingly. As an example, our project uses @"http://twitterauthsuccess.bit.ly";
 */
-+ (void)setTwitterOAuthConsumerKey:(NSString *)consumerKey 
+- (void)setTwitterOAuthConsumerKey:(NSString *)consumerKey 
 twitterOAuthConsumerSecret:(NSString *)consumerSecret 
 twitterOAuthSuccessCallbackURL:(NSString *)successCallbackURL;
 

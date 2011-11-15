@@ -169,12 +169,23 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
    
     NSString *urlString = [request.URL absoluteString];
-    if ([urlString rangeOfString:BitlyTwitterOAuthSuccessCallbackURL].location == 0 ) {
-        BitlyTwitterOAuthManager *oauthMgr = [BitlyTwitterOAuthManager sharedTwitterOAuthManager];
-        [oauthMgr authorizationCompletedWithCallbackURL:request.URL];  
-        return NO;
-    }
+    NSString *twitterSuccessCallbackURL = [ [BitlyConfig sharedBitlyConfig] twitterOAuthSuccessCallbackURL];
     
+    
+    if (!twitterSuccessCallbackURL ) {
+        NSError *error = [NSError errorWithDomain:@"BitlyOAuthErrorDomain" code:-1 
+                                         userInfo:[NSDictionary dictionaryWithObject:@"Twitter callback URL not set. See setter on BitlyConfig." forKey:NSLocalizedDescriptionKey]];
+        if ([delegate respondsToSelector:@selector(oAuthViewController:didFailWithError:)]) {
+            [delegate oAuthViewController:self didFailWithError:error];
+        }
+    } else {
+
+        if ([urlString rangeOfString:twitterSuccessCallbackURL].location == 0 ) {
+            BitlyTwitterOAuthManager *oauthMgr = [BitlyTwitterOAuthManager sharedTwitterOAuthManager];
+            [oauthMgr authorizationCompletedWithCallbackURL:request.URL];  
+            return NO;
+        }
+    }    
     return YES;
 }
 

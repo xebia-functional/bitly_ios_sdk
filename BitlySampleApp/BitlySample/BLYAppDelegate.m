@@ -29,9 +29,13 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    /*** Uncomment code below and set your bitly and twitter api key information ***/
+    /*** Uncomment code below and set your bitly api key information ***/
     
 //    [BitlyConfig setBitlyLogin:@"<bitly login>" bitlyApiKey:@"<bitlyAPIKey>"];
+    
+    /*** Twitter api keys are needed if you're supporting back to iOS 4.x, since 
+     that uses OAuth. 5.0+ use the twitter accounts configured in Settings. ***/
+    
 //    [BitlyConfig setTwitterOAuthConsumerKey: @"<twitterOAuthConsumerKey>" 
 //                 twitterOAuthConsumerSecret:@"<twitterOAuthConsumerSecret>" 
 //             twitterOAuthSuccessCallbackURL: @"<twitterOAuthSuccessCallbackURL>"];

@@ -11,6 +11,9 @@
 @interface BitlyConfig() {
     NSString *bitlyLogin;
     NSString *bitlyAPIKey;
+    NSString *twitterOAuthConsumerKey;
+    NSString *twitterOAuthConsumerSecret;
+    NSString *twitterOAuthSuccessCallbackURL;
 }
 - (NSDictionary *)plistConfig;
 
@@ -19,10 +22,6 @@
 static BitlyConfig *theInstance = nil;
 
 @implementation BitlyConfig
-
-NSString *BitlyTwitterOAuthConsumerKey = nil;
-NSString *BitlyTwitterOAuthConsumerSecret = nil;
-NSString *BitlyTwitterOAuthSuccessCallbackURL = nil;
 
 //These should be the same for everyone, but can be doublechecked at https://dev.twitter.com/apps/ 
 NSString * const BitlyTwitterRequestTokenURL = @"https://api.twitter.com/oauth/request_token";
@@ -42,12 +41,12 @@ NSString * const BitlyTwitterAuthorizeURLFormat = @"https://api.twitter.com/oaut
     bitlyAPIKey = apiKey;
 }
 
-+ (void)setTwitterOAuthConsumerKey:(NSString *)consumerKey 
+- (void)setTwitterOAuthConsumerKey:(NSString *)consumerKey 
         twitterOAuthConsumerSecret:(NSString *)consumerSecret 
     twitterOAuthSuccessCallbackURL:(NSString *)successCallbackURL {
-    BitlyTwitterOAuthConsumerKey = consumerKey;
-    BitlyTwitterOAuthConsumerSecret = consumerSecret;
-    BitlyTwitterOAuthSuccessCallbackURL = successCallbackURL;
+    twitterOAuthConsumerKey = consumerKey;
+    twitterOAuthConsumerSecret = consumerSecret;
+    twitterOAuthSuccessCallbackURL = successCallbackURL;
 }
 
 - (NSDictionary *)plistConfig {
@@ -79,5 +78,34 @@ NSString * const BitlyTwitterAuthorizeURLFormat = @"https://api.twitter.com/oaut
     return bitlyAPIKey;
 }
 
+- (NSString *)twitterOAuthConsumerKey {
+    if (!twitterOAuthConsumerKey) {
+        NSDictionary *plistConfig = [self plistConfig];
+        if (plistConfig) {
+            twitterOAuthConsumerKey = [plistConfig objectForKey:@"BLYTwitterOAuthConsumerKey"];
+        }
+    }
+    return twitterOAuthConsumerKey;
+}
+
+- (NSString *)twitterOAuthConsumerSecret {
+    if (!twitterOAuthConsumerSecret) {
+        NSDictionary *plistConfig = [self plistConfig];
+        if (plistConfig) {
+            twitterOAuthConsumerSecret = [plistConfig objectForKey:@"BLYTwitterOAuthConsumerSecret"];
+        }
+    }
+    return twitterOAuthConsumerSecret;
+}
+
+- (NSString *)twitterOAuthSuccessCallbackURL {
+    if (!twitterOAuthSuccessCallbackURL) {
+        NSDictionary *plistConfig = [self plistConfig];
+        if (plistConfig) {
+            twitterOAuthSuccessCallbackURL = [plistConfig objectForKey:@"BLYTwitterOAuthSuccessCallbackURL"];
+        }
+    }
+    return twitterOAuthSuccessCallbackURL;
+}
 
 @end

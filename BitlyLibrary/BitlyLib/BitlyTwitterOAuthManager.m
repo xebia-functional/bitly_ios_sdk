@@ -47,6 +47,7 @@ static NSString * const ErrorDomain = @"BitlyOAuthErrorDomain";
 static NSInteger RequestTokenErrorCode = -200;
 static NSInteger TweetErrorCode = -205;
 static NSInteger AccessTokenErrorCode = -210;
+static NSInteger OAuthCredentialsErrorCode = -215;
 
 
 + (BitlyTwitterOAuthManager *)sharedTwitterOAuthManager {
@@ -108,27 +109,39 @@ static NSInteger AccessTokenErrorCode = -210;
     
     self.requestTokenCompletionHandler = completionHandler;
     
-    OAConsumer *consumer = [[OAConsumer alloc] initWithKey:BitlyTwitterOAuthConsumerKey
-                                                    secret:BitlyTwitterOAuthConsumerSecret];
+    BitlyConfig *config = [BitlyConfig sharedBitlyConfig];
+    NSString *twitterOAuthConsumerKey = [config twitterOAuthConsumerKey];
+    NSString *twitterOAuthConsumerSecret = [config twitterOAuthConsumerSecret];
     
-    NSURL *url = [NSURL URLWithString:BitlyTwitterRequestTokenURL];
+    if (!twitterOAuthConsumerKey || !twitterOAuthConsumerSecret) {
+        NSError *error = [NSError errorWithDomain:ErrorDomain code:OAuthCredentialsErrorCode 
+                                         userInfo:[NSDictionary dictionaryWithObject:@"Twitter OAuth API keys not set. See setter on BitlyConfig." forKey:NSLocalizedDescriptionKey]];
+         requestTokenCompletionHandler(NO, error);
+      
+    } else {
     
-    OAMutableURLRequest *request = [[[OAMutableURLRequest alloc] initWithURL:url
-                                                                   consumer:consumer
-                                                                      token:nil   // we don't have a Token yet
-                                                                      realm:nil   // our service provider doesn't specify a realm
-                                                          signatureProvider:nil] autorelease]; // use the default method, HMAC-SHA1
-    
-    [consumer release];
-    
-    [request setHTTPMethod:@"POST"];
-    
-    OADataFetcher *fetcher = [[OADataFetcher alloc] init];
-    
-    [fetcher fetchDataWithRequest:request
-                         delegate:self
-                didFinishSelector:@selector(requestTokenTicket:didFinishWithData:)
-                  didFailSelector:@selector(requestTokenTicket:didFailWithError:)];
+        OAConsumer *consumer = [[OAConsumer alloc] initWithKey:twitterOAuthConsumerKey
+                                                        secret:twitterOAuthConsumerSecret];
+        
+        NSURL *url = [NSURL URLWithString:BitlyTwitterRequestTokenURL];
+        
+        OAMutableURLRequest *request = [[[OAMutableURLRequest alloc] initWithURL:url
+                                                                       consumer:consumer
+                                                                          token:nil   // we don't have a Token yet
+                                                                          realm:nil   // our service provider doesn't specify a realm
+                                                              signatureProvider:nil] autorelease]; // use the default method, HMAC-SHA1
+        
+        [consumer release];
+        
+        [request setHTTPMethod:@"POST"];
+        
+        OADataFetcher *fetcher = [[OADataFetcher alloc] init];
+        
+        [fetcher fetchDataWithRequest:request
+                             delegate:self
+                    didFinishSelector:@selector(requestTokenTicket:didFinishWithData:)
+                      didFailSelector:@selector(requestTokenTicket:didFailWithError:)];
+    }
 }
 
 
@@ -171,27 +184,43 @@ static NSInteger AccessTokenErrorCode = -210;
 }
 
 - (void)getAccessTokenWithRequestToken:(OAToken *)token verifier:(NSString *)verifier {
-    OAConsumer *consumer = [[[OAConsumer alloc] initWithKey:BitlyTwitterOAuthConsumerKey
-                                                     secret:BitlyTwitterOAuthConsumerSecret] autorelease];
+    BitlyConfig *config = [BitlyConfig sharedBitlyConfig];
+    NSString *twitterOAuthConsumerKey = [config twitterOAuthConsumerKey];
+    NSString *twitterOAuthConsumerSecret = [config twitterOAuthConsumerSecret];
     
-    NSURL *accessTokenURL = [NSURL URLWithString:BitlyTwitterAccessTokenURL];
-    
-    OAMutableURLRequest *request = [[[OAMutableURLRequest alloc] initWithURL:accessTokenURL
-                                                                   consumer:consumer
-                                                                      token:token
-                                                                      realm:nil   // our service provider doesn't specify a realm
-                                                          signatureProvider:nil] autorelease]; // use the default method, HMAC-SHA1
-    
-    [request setOAuthParameterName:@"oauth_verifier" withValue:verifier];
-    
-    [request setHTTPMethod:@"POST"];
-    
-    OADataFetcher *fetcher = [[OADataFetcher alloc] init];
-    
-    [fetcher fetchDataWithRequest:request
-                         delegate:self
-                didFinishSelector:@selector(accessTokenTicket:didFinishWithData:)
-                  didFailSelector:@selector(accessTokenTicket:didFailWithError:)];
+    if (!twitterOAuthConsumerKey || !twitterOAuthConsumerSecret) {
+        NSError *error = [NSError errorWithDomain:ErrorDomain code:OAuthCredentialsErrorCode 
+                                         userInfo:[NSDictionary dictionaryWithObject:@"Twitter OAuth API keys not set. See setter on BitlyConfig." forKey:NSLocalizedDescriptionKey]];
+        
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:error forKey:BitlyTwitterOauthErrorUserInfoKey];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:BitlyTwitterOAuthFailedNotification object:self userInfo:userInfo];
+
+        
+    } else {
+
+        OAConsumer *consumer = [[[OAConsumer alloc] initWithKey:twitterOAuthConsumerKey
+                                                         secret:twitterOAuthConsumerSecret] autorelease];
+        
+        NSURL *accessTokenURL = [NSURL URLWithString:BitlyTwitterAccessTokenURL];
+        
+        OAMutableURLRequest *request = [[[OAMutableURLRequest alloc] initWithURL:accessTokenURL
+                                                                       consumer:consumer
+                                                                          token:token
+                                                                          realm:nil   // our service provider doesn't specify a realm
+                                                              signatureProvider:nil] autorelease]; // use the default method, HMAC-SHA1
+        
+        [request setOAuthParameterName:@"oauth_verifier" withValue:verifier];
+        
+        [request setHTTPMethod:@"POST"];
+        
+        OADataFetcher *fetcher = [[OADataFetcher alloc] init];
+        
+        [fetcher fetchDataWithRequest:request
+                             delegate:self
+                    didFinishSelector:@selector(accessTokenTicket:didFinishWithData:)
+                      didFailSelector:@selector(accessTokenTicket:didFailWithError:)];
+    }
 }
 
 
@@ -237,8 +266,7 @@ static NSInteger AccessTokenErrorCode = -210;
                             
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:error forKey:BitlyTwitterOauthErrorUserInfoKey];
 
-      
-               [[NSNotificationCenter defaultCenter] postNotificationName:BitlyTwitterOAuthFailedNotification object:self userInfo:userInfo];
+        [[NSNotificationCenter defaultCenter] postNotificationName:BitlyTwitterOAuthFailedNotification object:self userInfo:userInfo];
     }
 }
 
@@ -257,30 +285,46 @@ completionHandler:(BitlyTweetCompletionHandler)completionHandler {
     
     NSURL *statusURL = [NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"];
     
-    OAConsumer *consumer = [[[OAConsumer alloc] initWithKey:BitlyTwitterOAuthConsumerKey
-                                                     secret:BitlyTwitterOAuthConsumerSecret] autorelease];
+    BitlyConfig *config = [BitlyConfig sharedBitlyConfig];
+    NSString *twitterOAuthConsumerKey = [config twitterOAuthConsumerKey];
+    NSString *twitterOAuthConsumerSecret = [config twitterOAuthConsumerSecret];
     
-    OAMutableURLRequest *request = [[[OAMutableURLRequest alloc] initWithURL:statusURL
-                                                                   consumer:consumer
-                                                                      token:account.oauthConsumerToken
-                                                                      realm:nil
-                                                          signatureProvider:nil] autorelease];
+    if (!twitterOAuthConsumerKey || !twitterOAuthConsumerSecret) {
+        NSError *error = [NSError errorWithDomain:ErrorDomain code:OAuthCredentialsErrorCode 
+                                         userInfo:[NSDictionary dictionaryWithObject:@"Twitter OAuth API keys not set. See setter on BitlyConfig." forKey:NSLocalizedDescriptionKey]];
+        
+
+        BitlyLog(@"Status api req failed: %@", [error localizedDescription]);
+        tweetCompletionHandler(NO, error);
+    } else {
     
-    [request setHTTPMethod:@"POST"];
-    
-    OARequestParameter *statusParam = [[OARequestParameter alloc] initWithName:@"status"
-                                                                         value:tweet];
-       
-    NSArray *params = [NSArray arrayWithObject:statusParam];
-    [request setParameters:params];
-    [statusParam release];
-    
-       
-    OADataFetcher *fetcher = [[OADataFetcher alloc] init];
-    [fetcher fetchDataWithRequest:request
-                         delegate:self
-                didFinishSelector:@selector(apiTicket:didFinishWithData:)
-                  didFailSelector:@selector(apiTicket:didFailWithError:)];
+        OAConsumer *consumer = [[[OAConsumer alloc] initWithKey:twitterOAuthConsumerKey
+                                                         secret:twitterOAuthConsumerSecret] autorelease];
+        
+        
+        
+        OAMutableURLRequest *request = [[[OAMutableURLRequest alloc] initWithURL:statusURL
+                                                                       consumer:consumer
+                                                                          token:account.oauthConsumerToken
+                                                                          realm:nil
+                                                              signatureProvider:nil] autorelease];
+        
+        [request setHTTPMethod:@"POST"];
+        
+        OARequestParameter *statusParam = [[OARequestParameter alloc] initWithName:@"status"
+                                                                             value:tweet];
+           
+        NSArray *params = [NSArray arrayWithObject:statusParam];
+        [request setParameters:params];
+        [statusParam release];
+        
+           
+        OADataFetcher *fetcher = [[OADataFetcher alloc] init];
+        [fetcher fetchDataWithRequest:request
+                             delegate:self
+                    didFinishSelector:@selector(apiTicket:didFinishWithData:)
+                      didFailSelector:@selector(apiTicket:didFailWithError:)];
+    }
 }
 
 - (void)apiTicket:(OAServiceTicket *)ticket didFinishWithData:(NSData *)data {
