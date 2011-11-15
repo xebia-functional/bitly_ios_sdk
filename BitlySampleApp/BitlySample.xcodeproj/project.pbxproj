@@ -29,7 +29,8 @@
 		B16305741471B630005AE82D /* BitlyTweetSheet_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16305681471B630005AE82D /* BitlyTweetSheet_iPhone.xib */; };
 		B16305751471B630005AE82D /* blue-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B16305701471B630005AE82D /* blue-button.png */; };
 		B16305761471B630005AE82D /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = B16305711471B630005AE82D /* gear.png */; };
-		B16305771471B630005AE82D /* libBitly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B16305721471B630005AE82D /* libBitly.a */; };
+		B16305791471C8FE005AE82D /* BitlyServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = B16305781471C8FE005AE82D /* BitlyServices.plist */; };
+		B163057B1472DBBE005AE82D /* libBitly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B163057A1472DBBE005AE82D /* libBitly.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,14 +61,10 @@
 		B13D342E146DA71F00014D91 /* BLYBitlyURLShortenerExample_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLYBitlyURLShortenerExample_iPhone.xib; sourceTree = "<group>"; };
 		B16305671471B630005AE82D /* BitlyTweetSheet_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BitlyTweetSheet_iPad.xib; sourceTree = "<group>"; };
 		B16305681471B630005AE82D /* BitlyTweetSheet_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BitlyTweetSheet_iPhone.xib; sourceTree = "<group>"; };
-		B163056A1471B630005AE82D /* BitlyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitlyConfig.h; sourceTree = "<group>"; };
-		B163056B1471B630005AE82D /* BitlyDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitlyDebug.h; sourceTree = "<group>"; };
-		B163056C1471B630005AE82D /* BitlyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitlyTextView.h; sourceTree = "<group>"; };
-		B163056D1471B630005AE82D /* BitlyTweetSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitlyTweetSheet.h; sourceTree = "<group>"; };
-		B163056E1471B630005AE82D /* BitlyURLShortener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitlyURLShortener.h; sourceTree = "<group>"; };
 		B16305701471B630005AE82D /* blue-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-button.png"; sourceTree = "<group>"; };
 		B16305711471B630005AE82D /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
-		B16305721471B630005AE82D /* libBitly.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBitly.a; path = ../../../../Bitly/libBitly.a; sourceTree = "<group>"; };
+		B16305781471C8FE005AE82D /* BitlyServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BitlyServices.plist; sourceTree = SOURCE_ROOT; };
+		B163057A1472DBBE005AE82D /* libBitly.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBitly.a; path = "../../../../Library/Developer/Xcode/DerivedData/BitlySDK-dtbmjwvbiidkmufisqonfwuqfjgo/Build/Products/Debug-iphoneos/libBitly.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B163057B1472DBBE005AE82D /* libBitly.a in Frameworks */,
 				B13D33A314699BA400014D91 /* Twitter.framework in Frameworks */,
 				B13D33A114699B9900014D91 /* Accounts.framework in Frameworks */,
 				B13D339F14699B8A00014D91 /* QuartzCore.framework in Frameworks */,
@@ -82,7 +80,6 @@
 				B13D336B14699B2100014D91 /* UIKit.framework in Frameworks */,
 				B13D336D14699B2100014D91 /* Foundation.framework in Frameworks */,
 				B13D336F14699B2100014D91 /* CoreGraphics.framework in Frameworks */,
-				B16305771471B630005AE82D /* libBitly.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +107,7 @@
 		B13D336914699B2100014D91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B16305721471B630005AE82D /* libBitly.a */,
+				B163057A1472DBBE005AE82D /* libBitly.a */,
 				B13D33A214699BA400014D91 /* Twitter.framework */,
 				B13D33A014699B9900014D91 /* Accounts.framework */,
 				B13D339E14699B8A00014D91 /* QuartzCore.framework */,
@@ -150,6 +147,7 @@
 				B13D337314699B2100014D91 /* InfoPlist.strings */,
 				B13D337614699B2100014D91 /* main.m */,
 				B13D337814699B2100014D91 /* BitlySample-Prefix.pch */,
+				B16305781471C8FE005AE82D /* BitlyServices.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -159,23 +157,10 @@
 			children = (
 				B16305671471B630005AE82D /* BitlyTweetSheet_iPad.xib */,
 				B16305681471B630005AE82D /* BitlyTweetSheet_iPhone.xib */,
-				B16305691471B630005AE82D /* Headers */,
 				B163056F1471B630005AE82D /* Images */,
 			);
 			name = Bitly;
 			path = ../../../../Bitly;
-			sourceTree = "<group>";
-		};
-		B16305691471B630005AE82D /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				B163056A1471B630005AE82D /* BitlyConfig.h */,
-				B163056B1471B630005AE82D /* BitlyDebug.h */,
-				B163056C1471B630005AE82D /* BitlyTextView.h */,
-				B163056D1471B630005AE82D /* BitlyTweetSheet.h */,
-				B163056E1471B630005AE82D /* BitlyURLShortener.h */,
-			);
-			path = Headers;
 			sourceTree = "<group>";
 		};
 		B163056F1471B630005AE82D /* Images */ = {
@@ -247,6 +232,7 @@
 				B16305741471B630005AE82D /* BitlyTweetSheet_iPhone.xib in Resources */,
 				B16305751471B630005AE82D /* blue-button.png in Resources */,
 				B16305761471B630005AE82D /* gear.png in Resources */,
+				B16305791471C8FE005AE82D /* BitlyServices.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +331,7 @@
 		B13D338814699B2200014D91 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BitlySample/BitlySample-Prefix.pch";
 				INFOPLIST_FILE = "BitlySample/BitlySample-Info.plist";
@@ -353,9 +340,11 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Bitly\"",
 					"\"$(SRCROOT)/../../../../Bitly\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/BitlySDK-dtbmjwvbiidkmufisqonfwuqfjgo/Build/Products/Debug-iphoneos\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -363,6 +352,7 @@
 		B13D338914699B2200014D91 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BitlySample/BitlySample-Prefix.pch";
 				INFOPLIST_FILE = "BitlySample/BitlySample-Info.plist";
@@ -371,9 +361,11 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Bitly\"",
 					"\"$(SRCROOT)/../../../../Bitly\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/BitlySDK-dtbmjwvbiidkmufisqonfwuqfjgo/Build/Products/Debug-iphoneos\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

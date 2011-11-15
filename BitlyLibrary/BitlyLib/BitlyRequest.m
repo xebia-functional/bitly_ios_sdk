@@ -43,23 +43,35 @@
     delegate = aDelegate;
 }
 
-- (void)start 
-{
-	NSString *longURLString = [BitlyLibUtil urlEncode:[longURL absoluteString]];
-
-	NSString *requestString = [NSString stringWithFormat:@"http://api.bitly.com/v3/shorten?login=%@&apiKey=%@&longUrl=%@&format=json", BitlyLogin, BitlyApiKey, longURLString];
+- (void)start {
+    NSString *bitlyLogin = [[BitlyConfig sharedBitlyConfig] bitlyLogin];
+    if (!bitlyLogin) {
+        [delegate bitlyRequest:self failedForLongURL:longURL statusCode:-1 statusText:@"Bitly login not set!"];
+        return;
+    }
+    NSString *bitlyAPIKey = [[BitlyConfig sharedBitlyConfig] bitlyAPIKey];
+    if (!bitlyAPIKey) {
+        [delegate bitlyRequest:self failedForLongURL:longURL statusCode:-1 statusText:@"Bitly API key not set!"];
+        return;
+    }
+    
+    //Only get here if credentials are set
+    NSString *longURLString = [BitlyLibUtil urlEncode:[longURL absoluteString]];
+    NSString *requestString = [NSString stringWithFormat:@"http://api.bitly.com/v3/shorten?login=%@&apiKey=%@&longUrl=%@&format=json", bitlyLogin, bitlyAPIKey, longURLString];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestString]];
     NSURLConnection *c = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     self.URLConnection = c;
     [c release];
-
+    
     if (URLConnection) {
         [URLConnection start];
         self.receivedData = [NSMutableData data];
     } else {
         [self.delegate bitlyRequest:self failedForLongURL:longURL statusCode:-1 statusText:@"Error creating URLConnection"];
     }
+    
+    
 }
 
 #pragma mark NSURLConnectionDelegate

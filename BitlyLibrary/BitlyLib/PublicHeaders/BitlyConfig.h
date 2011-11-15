@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BitlyConfig 
-
-extern NSString *BitlyLogin;
-extern NSString *BitlyApiKey;
 
 extern NSString *BitlyTwitterOAuthConsumerKey;
 extern NSString *BitlyTwitterOAuthConsumerSecret;
@@ -21,13 +17,18 @@ extern NSString * const BitlyTwitterRequestTokenURL;
 extern NSString * const BitlyTwitterAccessTokenURL;
 extern NSString * const BitlyTwitterAuthorizeURLFormat;
 
+@interface BitlyConfig: NSObject
+
+@property(nonatomic, readonly) NSString *bitlyLogin;
+@property(nonatomic, readonly) NSString *bitlyAPIKey;
+
+
++ (BitlyConfig *)sharedBitlyConfig;
 
 /** BITLY CREDENTIALS **/
 /* These are your api keys to bitly. They can be created at http://bitly.com/a/sign_up 
  */
-+ (void)setBitlyLogin:(NSString *)bitlyLogin bitlyApiKey:(NSString *)bitlyApiKey;
-
-
+- (void)setBitlyLogin:(NSString *)bitlyLogin bitlyAPIKey:(NSString *)bitlyAPIKey;
 
 
 /** TWITTER CREDENTIALS **/
@@ -37,5 +38,6 @@ IMPORTANT: You must set a callback URL, even though the user will never see that
 + (void)setTwitterOAuthConsumerKey:(NSString *)consumerKey 
 twitterOAuthConsumerSecret:(NSString *)consumerSecret 
 twitterOAuthSuccessCallbackURL:(NSString *)successCallbackURL;
+
 
 @end

@@ -8,10 +8,17 @@
 
 #import "BitlyConfig.h"
 
-@implementation BitlyConfig
+@interface BitlyConfig() {
+    NSString *bitlyLogin;
+    NSString *bitlyAPIKey;
+}
+- (NSDictionary *)plistConfig;
 
-NSString *BitlyLogin=nil;
-NSString *BitlyApiKey=nil;
+@end
+
+static BitlyConfig *theInstance = nil;
+
+@implementation BitlyConfig
 
 NSString *BitlyTwitterOAuthConsumerKey = nil;
 NSString *BitlyTwitterOAuthConsumerSecret = nil;
@@ -23,9 +30,16 @@ NSString * const BitlyTwitterAccessTokenURL = @"https://api.twitter.com/oauth/ac
 NSString * const BitlyTwitterAuthorizeURLFormat = @"https://api.twitter.com/oauth/authorize?oauth_token=%@";
 
 
-+ (void)setBitlyLogin:(NSString *)bitlyLogin bitlyApiKey:(NSString *)bitlyApiKey {
-    BitlyLogin = bitlyLogin;
-    BitlyApiKey = bitlyApiKey;
++ (BitlyConfig *)sharedBitlyConfig {
+    if (!theInstance) {
+        theInstance = [[BitlyConfig alloc] init];
+    }
+    return theInstance;
+}
+
+- (void)setBitlyLogin:(NSString *)login bitlyAPIKey:(NSString *)apiKey {
+    bitlyLogin = login;
+    bitlyAPIKey = apiKey;
 }
 
 + (void)setTwitterOAuthConsumerKey:(NSString *)consumerKey 
@@ -34,6 +48,35 @@ NSString * const BitlyTwitterAuthorizeURLFormat = @"https://api.twitter.com/oaut
     BitlyTwitterOAuthConsumerKey = consumerKey;
     BitlyTwitterOAuthConsumerSecret = consumerSecret;
     BitlyTwitterOAuthSuccessCallbackURL = successCallbackURL;
+}
+
+- (NSDictionary *)plistConfig {
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"BitlyServices" ofType:@"plist"];
+    if (plistPath) {
+       return [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    } else {
+        return nil;
+    }
+}
+
+- (NSString *)bitlyLogin {
+    if (!bitlyLogin) {
+        NSDictionary *plistConfig = [self plistConfig];
+        if (plistConfig) {
+            bitlyLogin = [plistConfig objectForKey:@"BLYBitlyLogin"];
+        } 
+    }
+    return bitlyLogin;
+}
+
+- (NSString *)bitlyAPIKey {
+    if (!bitlyAPIKey) {
+        NSDictionary *plistConfig = [self plistConfig];
+        if (plistConfig) {
+            bitlyAPIKey = [plistConfig objectForKey:@"BLYBitlyAPIKey"];
+        }
+    }
+    return bitlyAPIKey;
 }
 
 

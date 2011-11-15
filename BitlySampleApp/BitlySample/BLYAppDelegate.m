@@ -29,10 +29,12 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    [BitlyConfig setBitlyLogin:@"<bitly login>" bitlyApiKey:@"<bitlyAPIKey>"];
-    [BitlyConfig setTwitterOAuthConsumerKey: @"<twitterOAuthConsumerKey>" 
-                 twitterOAuthConsumerSecret:@"<twitterOAuthConsumerSecret>" 
-             twitterOAuthSuccessCallbackURL: @"<twitterOAuthSuccessCallbackURL>"];
+    /*** Uncomment code below and set your bitly and twitter api key information ***/
+    
+//    [BitlyConfig setBitlyLogin:@"<bitly login>" bitlyApiKey:@"<bitlyAPIKey>"];
+//    [BitlyConfig setTwitterOAuthConsumerKey: @"<twitterOAuthConsumerKey>" 
+//                 twitterOAuthConsumerSecret:@"<twitterOAuthConsumerSecret>" 
+//             twitterOAuthSuccessCallbackURL: @"<twitterOAuthSuccessCallbackURL>"];
     
     return YES;
 }
