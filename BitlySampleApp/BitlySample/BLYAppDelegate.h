@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) BLYViewController *viewController;
 
+@property (strong, nonatomic) UINavigationController *navController;
+
 @end

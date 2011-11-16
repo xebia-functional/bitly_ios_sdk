@@ -16,6 +16,7 @@
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+@synthesize navController = _navController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,7 +27,8 @@
     } else {
         self.viewController = [[BLYViewController alloc] initWithNibName:@"BLYViewController_iPad" bundle:nil];
     }
-    self.window.rootViewController = self.viewController;
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     
     /*** Uncomment code below and set your bitly api key information ***/

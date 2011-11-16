@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"Bitly SDK Examples";
     bitlyTweetSheet = [[BitlyTweetSheet alloc] init];
     bitlyTweetSheet.delegate = self;
     
@@ -139,7 +140,7 @@
     } else if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         viewController = [[BLYBitlyTextViewExample alloc] initWithNibName:@"BLYBitlyTextViewExample_iPad" bundle:nil]; 
     }
-    [self presentModalViewController:viewController animated:YES];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (IBAction)bitlyURLShortenerExample:(id)sender {
@@ -149,8 +150,7 @@
     } else if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         viewController = [[BLYBitlyURLShortenerExample alloc] initWithNibName:@"BLYBitlyURLShortenerExample)iPad" bundle:nil]; 
     }
-    [self presentModalViewController:viewController animated:YES];
-
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end
