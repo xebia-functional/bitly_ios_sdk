@@ -3,3 +3,4 @@
 **/*.xcodeproj/**/xcuserdata/*
 **/*.xcodeproj/xcuserdata/*
 BitlySDK.xcworkspace/xcuserdata/*
+BitlyLibrary/Bitly/

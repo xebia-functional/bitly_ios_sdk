@@ -48,11 +48,10 @@ And get the dependencies:
 4) Build and run the BitlySample target. Verify that your keys are working properly by shortening links and tweeting.
 
 5) Add the Bitly Library to your own project: 
-Locate the BitlyPublic folder in the BitlyLib project. Add the folder to your own project, selecting "Copy items into destination group's folder (if necessary)."
+The build creates a folder called "Bitly" in the workspace, at BitlyLibrary/Bitly. Locate the Bitly folder in Finder and drag it into to your own project, selecting "Copy items into destination group's folder (if necessary)."
 
-Locate the libBitly.a file in the Products folder of the BitlyLib project. Add it to your own project, selecting "Copy items into destination group's folder (if necessary.)
 
-Follow the directions under "Completing Setup", below. 
+Follow the directions under "Completing Setup", and "How to Use", below. 
 
 
 
