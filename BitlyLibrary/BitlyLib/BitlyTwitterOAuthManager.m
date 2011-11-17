@@ -113,7 +113,7 @@ static NSInteger OAuthCredentialsErrorCode = -215;
     NSString *twitterOAuthConsumerKey = [config twitterOAuthConsumerKey];
     NSString *twitterOAuthConsumerSecret = [config twitterOAuthConsumerSecret];
     
-    if (!twitterOAuthConsumerKey || !twitterOAuthConsumerSecret) {
+    if (![twitterOAuthConsumerKey length] || ![twitterOAuthConsumerSecret length]) {
         NSError *error = [NSError errorWithDomain:ErrorDomain code:OAuthCredentialsErrorCode 
                                          userInfo:[NSDictionary dictionaryWithObject:@"Twitter OAuth API keys not set. See setter on BitlyConfig." forKey:NSLocalizedDescriptionKey]];
          requestTokenCompletionHandler(NO, error);
@@ -188,7 +188,7 @@ static NSInteger OAuthCredentialsErrorCode = -215;
     NSString *twitterOAuthConsumerKey = [config twitterOAuthConsumerKey];
     NSString *twitterOAuthConsumerSecret = [config twitterOAuthConsumerSecret];
     
-    if (!twitterOAuthConsumerKey || !twitterOAuthConsumerSecret) {
+    if (![twitterOAuthConsumerKey length] || ![twitterOAuthConsumerSecret length]) {
         NSError *error = [NSError errorWithDomain:ErrorDomain code:OAuthCredentialsErrorCode 
                                          userInfo:[NSDictionary dictionaryWithObject:@"Twitter OAuth API keys not set. See setter on BitlyConfig." forKey:NSLocalizedDescriptionKey]];
         
@@ -289,7 +289,7 @@ completionHandler:(BitlyTweetCompletionHandler)completionHandler {
     NSString *twitterOAuthConsumerKey = [config twitterOAuthConsumerKey];
     NSString *twitterOAuthConsumerSecret = [config twitterOAuthConsumerSecret];
     
-    if (!twitterOAuthConsumerKey || !twitterOAuthConsumerSecret) {
+    if (![twitterOAuthConsumerKey length] || ![twitterOAuthConsumerSecret length]) {
         NSError *error = [NSError errorWithDomain:ErrorDomain code:OAuthCredentialsErrorCode 
                                          userInfo:[NSDictionary dictionaryWithObject:@"Twitter OAuth API keys not set. See setter on BitlyConfig." forKey:NSLocalizedDescriptionKey]];
         

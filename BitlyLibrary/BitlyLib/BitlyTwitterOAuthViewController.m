@@ -172,7 +172,7 @@
     NSString *twitterSuccessCallbackURL = [ [BitlyConfig sharedBitlyConfig] twitterOAuthSuccessCallbackURL];
     
     
-    if (!twitterSuccessCallbackURL ) {
+    if (![twitterSuccessCallbackURL length]) {
         NSError *error = [NSError errorWithDomain:@"BitlyOAuthErrorDomain" code:-1 
                                          userInfo:[NSDictionary dictionaryWithObject:@"Twitter callback URL not set. See setter on BitlyConfig." forKey:NSLocalizedDescriptionKey]];
         if ([delegate respondsToSelector:@selector(oAuthViewController:didFailWithError:)]) {

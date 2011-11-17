@@ -45,12 +45,12 @@
 
 - (void)start {
     NSString *bitlyLogin = [[BitlyConfig sharedBitlyConfig] bitlyLogin];
-    if (!bitlyLogin) {
+    if (![bitlyLogin length]) {
         [delegate bitlyRequest:self failedForLongURL:longURL statusCode:-1 statusText:@"Bitly login not set!"];
         return;
     }
     NSString *bitlyAPIKey = [[BitlyConfig sharedBitlyConfig] bitlyAPIKey];
-    if (!bitlyAPIKey) {
+    if (![bitlyAPIKey length]) {
         [delegate bitlyRequest:self failedForLongURL:longURL statusCode:-1 statusText:@"Bitly API key not set!"];
         return;
     }

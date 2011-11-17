@@ -34,7 +34,7 @@ If needed, create keys here: https://dev.twitter.com/apps/new. **Important** -- 
 
 ### DOWNLOAD THE SDK 
 
-#### OPTION ONE: Clone the repository
+tly_ios_sdk#### OPTION ONE: Clone the repository
 1) Pull the SDK from github: 
 
 	git clone git@github.com:bitly/bitly_ios_sdk.git
@@ -43,11 +43,9 @@ And get the dependencies:
 	cd  bitly_ios_sdk
 	git submodule update --init
 
-2) Open the workspace file, BitlySDK.xcworkspace, in Xcode. The workspace contains two projects, the Bitly library (BitlyLib) aand a sample project that demonstrates usage of the library (BitlySample).
+2) Open the workspace file, BitlySDK.xcworkspace. The workspace contains two projects, the Bitly library (BitlyLib) aand a sample project that demonstrates usage of the library (BitlySample). Edit the sample project's applicationDidFinishLaunching method to include your bitly API keys. If you are supporting iOS 4.x, also include your twitter API keys (see documentation on key creation above.)
 
-3) Edit the sample project's applicationDidFinishLaunching method to include your bitly API keys. If you are supporting iOS 4.x, also include your twitter API keys (see documentation on key creation above.)
-
-4) Build and run the BitlySample project. Verify that your keys are working properly.
+4) Build and run the BitlySample target. Verify that your keys are working properly by shortening links and tweeting.
 
 5) Add the Bitly Library to your own project: 
 Locate the BitlyPublic folder in the BitlyLib project. Add the folder to your own project, selecting "Copy items into destination group's folder (if necessary)."
