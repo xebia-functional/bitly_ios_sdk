@@ -353,10 +353,7 @@
 				GCC_PREFIX_HEADER = "BitlySample/BitlySample-Prefix.pch";
 				INFOPLIST_FILE = "BitlySample/BitlySample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/BitlySDK-dtbmjwvbiidkmufisqonfwuqfjgo/Build/Products/Debug-iphoneos\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
@@ -372,10 +369,7 @@
 				GCC_PREFIX_HEADER = "BitlySample/BitlySample-Prefix.pch";
 				INFOPLIST_FILE = "BitlySample/BitlySample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/BitlySDK-dtbmjwvbiidkmufisqonfwuqfjgo/Build/Products/Debug-iphoneos\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
