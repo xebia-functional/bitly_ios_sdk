@@ -34,7 +34,7 @@ If needed, create keys here: https://dev.twitter.com/apps/new. **Important** -- 
 
 ### DOWNLOAD THE SDK 
 
-tly_ios_sdk#### OPTION ONE: Clone the repository
+#### OPTION ONE: Clone the repository
 1) Pull the SDK from github: 
 
 	git clone git@github.com:bitly/bitly_ios_sdk.git
