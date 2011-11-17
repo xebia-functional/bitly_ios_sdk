@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:BitlyLibrary/BitlyLib.xcodeproj">
+      location = "group:BitlySampleApp/BitlySample.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:BitlySampleApp/BitlySample.xcodeproj">
+      location = "container:BitlyLibrary/BitlyLib.xcodeproj">
    </FileRef>
 </Workspace>

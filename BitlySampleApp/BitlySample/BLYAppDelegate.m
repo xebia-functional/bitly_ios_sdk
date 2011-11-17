@@ -33,12 +33,12 @@
     
     /*** Uncomment code below and set your bitly api key information ***/
     
-//    [BitlyConfig setBitlyLogin:@"<bitly login>" bitlyApiKey:@"<bitlyAPIKey>"];
+//    [[BitlyConfig sharedBitlyConfig] setBitlyLogin:@"<bitly login>" bitlyAPIKey:@"<bitlyAPIKey>"];
     
     /*** Twitter api keys are needed if you're supporting back to iOS 4.x, since 
      that uses OAuth. 5.0+ use the twitter accounts configured in Settings. ***/
     
-//    [BitlyConfig setTwitterOAuthConsumerKey: @"<twitterOAuthConsumerKey>" 
+//    [[BitlyConfig sharedBitlyConfig] setTwitterOAuthConsumerKey: @"<twitterOAuthConsumerKey>" 
 //                 twitterOAuthConsumerSecret:@"<twitterOAuthConsumerSecret>" 
 //             twitterOAuthSuccessCallbackURL: @"<twitterOAuthSuccessCallbackURL>"];
     

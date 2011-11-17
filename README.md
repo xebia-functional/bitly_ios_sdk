@@ -40,7 +40,7 @@ If needed, create keys here: https://dev.twitter.com/apps/new. **Important** -- 
 	git clone git@github.com:bitly/bitly_ios_sdk.git
 
 And get the dependencies: 
-
+	cd  bitly_ios_sdk
 	git submodule update --init
 
 2) Open the workspace file, BitlySDK.xcworkspace, in Xcode. The workspace contains two projects, the Bitly library (BitlyLib) aand a sample project that demonstrates usage of the library (BitlySample).
@@ -106,11 +106,11 @@ Using the static library as specified in the setup directions above should make 
 
 Call these two methods to set your credentials. You may want to do this in your application:didFinishLaunching implementation:
 
-	[BitlyConfig setBitlyLogin:<your bitly login> bitlyApiKey:<your bitly api key>];
+	[[BitlyConfig sharedBitlyConfig] setBitlyLogin:<your bitly login> bitlyApiKey:<your bitly api key>];
 
 
 If supporting iOS 4.x: 
-    [BitlyConfig setTwitterOAuthConsumerKey:<your consumer key> twitterOAuthConsumerSecret:<your consumer secret> twitterOAuthSuccessCallbackURL:<your callback url>];
+    [[BitlyConfig sharedBitlyConfig] setTwitterOAuthConsumerKey:<your consumer key> twitterOAuthConsumerSecret:<your consumer secret> twitterOAuthSuccessCallbackURL:<your callback url>];
 	
 
 ### Using the bitly TweetSheet
