@@ -17,56 +17,49 @@ The library must be built against iOS5, but can be deployed onto iOS 4.2+. When 
 
 ## Setting Up
 
-The easiest way to integrate this project is to use the shared library (.a file). However, if you would like the source, you can download it from https://github.com/bitly/bitly\_ios\_sdk. **THIS LINK WILL NEED UPDATING WHEN WE SWITCH TO PUBLIC REPO**
+### CREATE API KEYS
 
-### Create api keys
-
-#### 1) Create bitly api keys
+#### Create Bitly API Keys
 
 If you don't already have a bitly api key, obtain one here: http://bitly.com/a/sign_up. 
 	
-#### 2) Create twitter api keys (if supporting back to iOS4)
+#### Create Twitter API Keys (if supporting back to iOS4)
 	
 If you're supporting iOS 4.x, you must create twitter api keys so that we can send the tweet using OAuth. In iOS5, this is handled by Apple's TWRequest class.
 
-If needed, create keys here: https://dev.twitter.com/apps/new. **Important** -- You must set a callback URL, even though the user will never see that page. The library will intercept redirects to that URL and act accordingly. As an example, our project uses @"http://twitterauthsuccess.bit.ly";
+You can create keys here: https://dev.twitter.com/apps/new. **Important** -- You must set a callback URL, even though the user will never see that page. The library will intercept redirects to that URL and act accordingly. As an example, our project uses @"http://twitterauthsuccess.bit.ly";
 
 
 ### DOWNLOAD THE SDK 
 
 #### OPTION ONE: Clone the repository
-1) Pull the SDK from github: 
+####1) Pull the SDK from github: 
 
 	git clone git@github.com:bitly/bitly_ios_sdk.git
 
 And get the dependencies: 
+
 	cd  bitly_ios_sdk
 	git submodule update --init
 
-2) Open the workspace file, BitlySDK.xcworkspace. The workspace contains two projects, the Bitly library (BitlyLib) aand a sample project that demonstrates usage of the library (BitlySample). Edit the sample project's applicationDidFinishLaunching method to include your bitly API keys. If you are supporting iOS 4.x, also include your twitter API keys (see documentation on key creation above.)
+####2) Open the workspace file, BitlySDK.xcworkspace. 
 
-4) Build and run the BitlySample target. Verify that your keys are working properly by shortening links and tweeting.
+The workspace contains two projects, the Bitly library (BitlyLib) aand a sample project that demonstrates usage of the library (BitlySample). Edit the sample project's applicationDidFinishLaunching method to include your bitly API keys. If you are supporting iOS 4.x, also include your twitter API keys (see documentation on key creation above.)
 
-5) Add the Bitly Library to your own project: 
+####3) Build and run the BitlySample target. i
+
+Verify that your keys are working properly by shortening links and tweeting.
+
+####4) Add the Bitly Library to your own project 
 The build creates a folder called "Bitly" in the workspace, at BitlyLibrary/Bitly. Locate the Bitly folder in Finder and drag it into to your own project, selecting "Copy items into destination group's folder (if necessary)."
 
 
 Follow the directions under "Completing Setup", and "How to Use", below. 
 
 
-
-
-### TROUBLESHOOTING:
-
-Run the sample project (see instructions above depending on whether you downloaded from Make sure that links typed in the text box are being shortened, indicating that your bitly api key is working. Links are shortened whenever the user types a space character, hits "Done" on the keypad, or sends the tweet.  
-	
-Send a test tweet to make sure your twitter keys are working.
-	
-	
-
-### OPTION TWO: Download the binary
+#### OPTION TWO: Download the zip file 
  
-(Binary build system is in the works).
+(Binary distribution is in the works).
 
 
 ### COMPLETING SETUP
@@ -87,11 +80,10 @@ In the "Build Settings" tab of your project's target, open "Other Linker Flags" 
 
 
 
-### NOTE ON ARC 
+#### NOTE ON ARC 
 
-The current version of this library is not built with ARC, because there were some known bugs in the early betas of iOS5 in the interaction between the twitter integration and ARC that prevented development using ARC. 
-
-Using the static library as specified in the setup directions above should make this a non-issue, as it will work both with ARC and non-ARC projects. If for some reason you want to pull in the source files instead of using the static library, and your project uses ARC, you will have to turn this off on a per-file basis. Select your target, and under "Build Phases" -> Compile Sources, set the Compiler Flags to -fno-objc-arc for all BitlyLib, TouchJSON, and OAuthConsumer implementation files.  
+The current version of this library is not built with ARC, because there were some known bugs in the early betas of iOS5 in the interaction between the twitter integration and ARC that prevented development using ARC.  
+Using the static library as documented above should make this a non-issue, as it will work both with ARC and non-ARC projects. If for some reason you want to pull in the source files instead of using the static library, and your project uses ARC, you will have to turn this off on a per-file basis.  
 
 	
 
