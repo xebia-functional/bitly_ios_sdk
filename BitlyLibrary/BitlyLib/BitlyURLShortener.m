@@ -15,6 +15,11 @@
 }
 
 @property (nonatomic, retain) NSRegularExpression *urlRegex;
+@property (nonatomic, retain) NSString *longText;
+@property (nonatomic, retain) NSString *shortenedText;
+@property (nonatomic, retain) NSMutableArray *bitlyRequests;
+@property (nonatomic, retain) NSMutableDictionary *shortenedDict;
+@property (nonatomic, retain) NSMutableArray *shortenQueue;
 
 - (void)finishedShortening;
 - (NSArray *)urlsInText:(NSString *)text;
