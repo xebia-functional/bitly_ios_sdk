@@ -146,8 +146,9 @@
 }
 
 - (void)viewDidLoad {
-   
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+
+    [super viewDidLoad];
+
     self.navigationItem.title = @"Share on Twitter";
     
     self.contentSizeForViewInPopover = self.view.frame.size;
@@ -164,7 +165,6 @@
 		self.textView.text = self.initialText;
     }   
     
-    [super viewDidLoad];
 }
 
 - (void)setAccounts {
@@ -177,6 +177,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:77/255.0 green:173/255.0 blue:245/255.0 alpha:1.0];
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         //Don't do this on iphone because bringing up the keyboard blocks some of the ui
