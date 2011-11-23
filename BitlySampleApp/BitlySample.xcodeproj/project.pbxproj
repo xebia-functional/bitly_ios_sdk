@@ -25,9 +25,9 @@
 		B13D342B146D8C5E00014D91 /* BLYBitlyTextViewExample_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B13D342A146D8C5D00014D91 /* BLYBitlyTextViewExample_iPad.xib */; };
 		B13D342F146DA71F00014D91 /* BLYBitlyURLShortenerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = B13D342D146DA71F00014D91 /* BLYBitlyURLShortenerExample.m */; };
 		B13D3430146DA71F00014D91 /* BLYBitlyURLShortenerExample_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B13D342E146DA71F00014D91 /* BLYBitlyURLShortenerExample_iPhone.xib */; };
+		B15667CA147AD8A00062C7E1 /* BitlyTweetSheet_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15667C9147AD8A00062C7E1 /* BitlyTweetSheet_iPhone.xib */; };
 		B163057B1472DBBE005AE82D /* libBitly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B163057A1472DBBE005AE82D /* libBitly.a */; };
 		B19CCF3214747C7900EDB90F /* BitlyTweetSheet_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19CCF2714747C7900EDB90F /* BitlyTweetSheet_iPad.xib */; };
-		B19CCF3314747C7900EDB90F /* BitlyTweetSheet_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19CCF2814747C7900EDB90F /* BitlyTweetSheet_iPhone.xib */; };
 		B19CCF3414747C7900EDB90F /* blue-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B19CCF2A14747C7900EDB90F /* blue-button.png */; };
 		B19CCF3514747C7900EDB90F /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = B19CCF2B14747C7900EDB90F /* gear.png */; };
 		B19CCF49147576A000EDB90F /* BitlyServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = B19CCF48147576A000EDB90F /* BitlyServices.plist */; };
@@ -59,9 +59,9 @@
 		B13D342C146DA71F00014D91 /* BLYBitlyURLShortenerExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLYBitlyURLShortenerExample.h; sourceTree = "<group>"; };
 		B13D342D146DA71F00014D91 /* BLYBitlyURLShortenerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLYBitlyURLShortenerExample.m; sourceTree = "<group>"; };
 		B13D342E146DA71F00014D91 /* BLYBitlyURLShortenerExample_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLYBitlyURLShortenerExample_iPhone.xib; sourceTree = "<group>"; };
+		B15667C9147AD8A00062C7E1 /* BitlyTweetSheet_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BitlyTweetSheet_iPhone.xib; sourceTree = "<group>"; };
 		B163057A1472DBBE005AE82D /* libBitly.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBitly.a; path = "../../../../Library/Developer/Xcode/DerivedData/BitlySDK-dtbmjwvbiidkmufisqonfwuqfjgo/Build/Products/Debug-iphoneos/libBitly.a"; sourceTree = "<group>"; };
 		B19CCF2714747C7900EDB90F /* BitlyTweetSheet_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BitlyTweetSheet_iPad.xib; sourceTree = "<group>"; };
-		B19CCF2814747C7900EDB90F /* BitlyTweetSheet_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BitlyTweetSheet_iPhone.xib; sourceTree = "<group>"; };
 		B19CCF2A14747C7900EDB90F /* blue-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-button.png"; sourceTree = "<group>"; };
 		B19CCF2B14747C7900EDB90F /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		B19CCF2D14747C7900EDB90F /* BitlyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitlyConfig.h; sourceTree = "<group>"; };
@@ -160,8 +160,8 @@
 		B19CCF2614747C7900EDB90F /* BitlyPublic */ = {
 			isa = PBXGroup;
 			children = (
+				B15667C9147AD8A00062C7E1 /* BitlyTweetSheet_iPhone.xib */,
 				B19CCF2714747C7900EDB90F /* BitlyTweetSheet_iPad.xib */,
-				B19CCF2814747C7900EDB90F /* BitlyTweetSheet_iPhone.xib */,
 				B19CCF2914747C7900EDB90F /* Images */,
 				B19CCF2C14747C7900EDB90F /* PublicHeaders */,
 			);
@@ -246,10 +246,10 @@
 				B13D342B146D8C5E00014D91 /* BLYBitlyTextViewExample_iPad.xib in Resources */,
 				B13D3430146DA71F00014D91 /* BLYBitlyURLShortenerExample_iPhone.xib in Resources */,
 				B19CCF3214747C7900EDB90F /* BitlyTweetSheet_iPad.xib in Resources */,
-				B19CCF3314747C7900EDB90F /* BitlyTweetSheet_iPhone.xib in Resources */,
 				B19CCF3414747C7900EDB90F /* blue-button.png in Resources */,
 				B19CCF3514747C7900EDB90F /* gear.png in Resources */,
 				B19CCF49147576A000EDB90F /* BitlyServices.plist in Resources */,
+				B15667CA147AD8A00062C7E1 /* BitlyTweetSheet_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

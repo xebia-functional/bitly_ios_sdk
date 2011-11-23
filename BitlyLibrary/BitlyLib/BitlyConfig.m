@@ -52,7 +52,7 @@ NSString * const BitlyTwitterAuthorizeURLFormat = @"https://api.twitter.com/oaut
 - (NSDictionary *)plistConfig {
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"BitlyServices" ofType:@"plist"];
     if (plistPath) {
-       return [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+       return [[[NSDictionary alloc] initWithContentsOfFile:plistPath] autorelease];
     } else {
         return nil;
     }
