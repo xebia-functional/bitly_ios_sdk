@@ -23,6 +23,21 @@ static BitlyConfig *theInstance = nil;
 
 @implementation BitlyConfig
 
+@synthesize bitlyLogin = __bitlyLogin;
+@synthesize bitlyAPIKey = __bitlyAPIKey;
+@synthesize twitterOAuthConsumerKey = __twitterOAuthConsumerKey;
+@synthesize twitterOAuthConsumerSecret = __twitterOAuthConsumerSecret;
+@synthesize twitterOAuthSuccessCallbackURL = __twitterOAuthSuccessCallbackURL;
+
+- (void)dealloc 
+{
+    [bitlyLogin release];
+    [bitlyAPIKey release];
+    [twitterOAuthConsumerKey release];
+    [twitterOAuthConsumerSecret release];
+    [twitterOAuthSuccessCallbackURL release];
+}
+
 //These should be the same for everyone, but can be doublechecked at https://dev.twitter.com/apps/ 
 NSString * const BitlyTwitterRequestTokenURL = @"https://api.twitter.com/oauth/request_token";
 NSString * const BitlyTwitterAccessTokenURL = @"https://api.twitter.com/oauth/access_token";
@@ -37,8 +52,8 @@ NSString * const BitlyTwitterAuthorizeURLFormat = @"https://api.twitter.com/oaut
 }
 
 - (void)setBitlyLogin:(NSString *)login bitlyAPIKey:(NSString *)apiKey {
-    bitlyLogin = login;
-    bitlyAPIKey = apiKey;
+    self.bitlyLogin = login;
+    self.bitlyAPIKey = apiKey;
 }
 
 - (void)setTwitterOAuthConsumerKey:(NSString *)consumerKey 
@@ -59,53 +74,53 @@ NSString * const BitlyTwitterAuthorizeURLFormat = @"https://api.twitter.com/oaut
 }
 
 - (NSString *)bitlyLogin {
-    if (!bitlyLogin) {
+    if (!__bitlyLogin) {
         NSDictionary *plistConfig = [self plistConfig];
         if (plistConfig) {
-            bitlyLogin = [plistConfig objectForKey:@"BLYBitlyLogin"];
+            self.bitlyLogin = [plistConfig objectForKey:@"BLYBitlyLogin"];
         } 
     }
-    return bitlyLogin;
+    return __bitlyLogin;
 }
 
 - (NSString *)bitlyAPIKey {
-    if (!bitlyAPIKey) {
+    if (!__bitlyAPIKey) {
         NSDictionary *plistConfig = [self plistConfig];
         if (plistConfig) {
-            bitlyAPIKey = [plistConfig objectForKey:@"BLYBitlyAPIKey"];
+            self.bitlyAPIKey = [plistConfig objectForKey:@"BLYBitlyAPIKey"];
         }
     }
-    return bitlyAPIKey;
+    return __bitlyAPIKey;
 }
 
 - (NSString *)twitterOAuthConsumerKey {
-    if (!twitterOAuthConsumerKey) {
+    if (!__twitterOAuthConsumerKey) {
         NSDictionary *plistConfig = [self plistConfig];
         if (plistConfig) {
-            twitterOAuthConsumerKey = [plistConfig objectForKey:@"BLYTwitterOAuthConsumerKey"];
+            self.twitterOAuthConsumerKey = [plistConfig objectForKey:@"BLYTwitterOAuthConsumerKey"];
         }
     }
-    return twitterOAuthConsumerKey;
+    return __twitterOAuthConsumerKey;
 }
 
 - (NSString *)twitterOAuthConsumerSecret {
-    if (!twitterOAuthConsumerSecret) {
+    if (!__twitterOAuthConsumerSecret) {
         NSDictionary *plistConfig = [self plistConfig];
         if (plistConfig) {
-            twitterOAuthConsumerSecret = [plistConfig objectForKey:@"BLYTwitterOAuthConsumerSecret"];
+            self.twitterOAuthConsumerSecret = [plistConfig objectForKey:@"BLYTwitterOAuthConsumerSecret"];
         }
     }
-    return twitterOAuthConsumerSecret;
+    return __twitterOAuthConsumerSecret;
 }
 
 - (NSString *)twitterOAuthSuccessCallbackURL {
-    if (!twitterOAuthSuccessCallbackURL) {
+    if (!__twitterOAuthSuccessCallbackURL) {
         NSDictionary *plistConfig = [self plistConfig];
         if (plistConfig) {
-            twitterOAuthSuccessCallbackURL = [plistConfig objectForKey:@"BLYTwitterOAuthSuccessCallbackURL"];
+            self.twitterOAuthSuccessCallbackURL = [plistConfig objectForKey:@"BLYTwitterOAuthSuccessCallbackURL"];
         }
     }
-    return twitterOAuthSuccessCallbackURL;
+    return __twitterOAuthSuccessCallbackURL;
 }
 
 @end

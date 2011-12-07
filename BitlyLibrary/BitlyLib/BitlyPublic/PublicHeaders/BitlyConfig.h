@@ -14,12 +14,12 @@ extern NSString * const BitlyTwitterAuthorizeURLFormat;
 
 @interface BitlyConfig: NSObject
 
-@property(nonatomic, readonly) NSString *bitlyLogin;
-@property(nonatomic, readonly) NSString *bitlyAPIKey;
+@property(nonatomic, retain) NSString *bitlyLogin;
+@property(nonatomic, retain) NSString *bitlyAPIKey;
 
-@property(nonatomic, readonly) NSString *twitterOAuthConsumerKey;
-@property(nonatomic, readonly) NSString *twitterOAuthConsumerSecret;
-@property(nonatomic, readonly) NSString *twitterOAuthSuccessCallbackURL;
+@property(nonatomic, retain) NSString *twitterOAuthConsumerKey;
+@property(nonatomic, retain) NSString *twitterOAuthConsumerSecret;
+@property(nonatomic, retain) NSString *twitterOAuthSuccessCallbackURL;
 
 + (BitlyConfig *)sharedBitlyConfig;
 
