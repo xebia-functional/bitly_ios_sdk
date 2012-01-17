@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define BITLYDEBUG 1
+//#define BITLYDEBUG 1
 
 #ifdef BITLYDEBUG
 #define BitlyLog(format...) BitlyDebug(__FILE__, __LINE__, format)
