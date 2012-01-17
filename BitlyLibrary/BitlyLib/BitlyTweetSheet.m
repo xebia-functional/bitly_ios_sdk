@@ -45,7 +45,6 @@
 @synthesize submitButton;
 @synthesize activeAccountButton;
 @synthesize switchAccountsButton;
-//@synthesize loadingView;
 
 @synthesize account;
 @synthesize accountStore;
@@ -66,7 +65,6 @@
     [charCountLabel release];
 	[textView release];
 	[submitButton release];
-//	[loadingView release];
     [account release];
     [accountStore release];
 	
@@ -120,13 +118,14 @@
     
     [viewController presentModalViewController:navController animated:YES];
     
-    
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) { 
         navController.view.superview.bounds = CGRectMake (0.0, 
                                                           0.0, 
                                                           self.contentSizeForViewInPopover.width,
                                                           self.contentSizeForViewInPopover.height + 44.0);
     }
+    
+    navController.navigationBar.tintColor = [UIColor colorWithRed:77/255.0 green:173/255.0 blue:245/255.0 alpha:1.0];
     
     [navController release];
 
@@ -177,8 +176,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:77/255.0 green:173/255.0 blue:245/255.0 alpha:1.0];
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         //Don't do this on iphone because bringing up the keyboard blocks some of the ui
