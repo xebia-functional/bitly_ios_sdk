@@ -11,6 +11,8 @@
 		B120C6AF14C5F46C009C455E /* BitlyTweetSheet_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B120C6A414C5F46B009C455E /* BitlyTweetSheet_iPhone.xib */; };
 		B120C6B014C5F46C009C455E /* blue-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B120C6A614C5F46B009C455E /* blue-button.png */; };
 		B120C6B114C5F46C009C455E /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = B120C6A714C5F46B009C455E /* gear.png */; };
+		B120C6CA14C6201B009C455E /* ios_app_icon_proto_114.png in Resources */ = {isa = PBXBuildFile; fileRef = B120C6C814C6201B009C455E /* ios_app_icon_proto_114.png */; };
+		B120C6CB14C6201B009C455E /* ios_app_icon_proto_57.png in Resources */ = {isa = PBXBuildFile; fileRef = B120C6C914C6201B009C455E /* ios_app_icon_proto_57.png */; };
 		B13D336B14699B2100014D91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13D336A14699B2100014D91 /* UIKit.framework */; };
 		B13D336D14699B2100014D91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13D336C14699B2100014D91 /* Foundation.framework */; };
 		B13D336F14699B2100014D91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13D336E14699B2100014D91 /* CoreGraphics.framework */; };
@@ -43,6 +45,8 @@
 		B120C6AB14C5F46B009C455E /* BitlyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitlyTextView.h; sourceTree = "<group>"; };
 		B120C6AC14C5F46B009C455E /* BitlyTweetSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitlyTweetSheet.h; sourceTree = "<group>"; };
 		B120C6AD14C5F46B009C455E /* BitlyURLShortener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitlyURLShortener.h; sourceTree = "<group>"; };
+		B120C6C814C6201B009C455E /* ios_app_icon_proto_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios_app_icon_proto_114.png; sourceTree = "<group>"; };
+		B120C6C914C6201B009C455E /* ios_app_icon_proto_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios_app_icon_proto_57.png; sourceTree = "<group>"; };
 		B13D336614699B2100014D91 /* BitlySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitlySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B13D336A14699B2100014D91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B13D336C14699B2100014D91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +128,15 @@
 			path = PublicHeaders;
 			sourceTree = "<group>";
 		};
+		B120C6C714C6201B009C455E /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				B120C6C814C6201B009C455E /* ios_app_icon_proto_114.png */,
+				B120C6C914C6201B009C455E /* ios_app_icon_proto_57.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		B13D335B14699B2100014D91 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +194,7 @@
 		B13D337114699B2100014D91 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B120C6C714C6201B009C455E /* Icons */,
 				B19CCF48147576A000EDB90F /* BitlyServices.plist */,
 				B13D337214699B2100014D91 /* BitlySample-Info.plist */,
 				B13D337314699B2100014D91 /* InfoPlist.strings */,
@@ -251,6 +265,8 @@
 				B120C6AF14C5F46C009C455E /* BitlyTweetSheet_iPhone.xib in Resources */,
 				B120C6B014C5F46C009C455E /* blue-button.png in Resources */,
 				B120C6B114C5F46C009C455E /* gear.png in Resources */,
+				B120C6CA14C6201B009C455E /* ios_app_icon_proto_114.png in Resources */,
+				B120C6CB14C6201B009C455E /* ios_app_icon_proto_57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

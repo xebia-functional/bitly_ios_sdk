@@ -218,5 +218,5 @@ Enter your bitly keys (and optionally twitter) api keys into the sample project.
 
 ####4) Get in touch
 
-If you continue to have problems, open an issue here: https://github.com/bitly/bitly\_ios\_sdk/issues. The author of this SDK would like to shamelessly plead for your patience on the basis of being 9 months pregnant when she wrote this, see http://bit.ly/vInTHE :)
+If you continue to have problems, open an issue here: https://github.com/bitly/bitly\_ios\_sdk/issues. 
 
