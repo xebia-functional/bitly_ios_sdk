@@ -43,15 +43,14 @@ And get the dependencies:
 
 ####2) Open the workspace file, BitlySDK.xcworkspace. 
 
-The workspace contains two projects, the Bitly library (BitlyLib) aand a sample project that demonstrates usage of the library (BitlySample). Edit the sample project's applicationDidFinishLaunching method to include your bitly API keys. If you are supporting iOS 4.x, also include your twitter API keys (see documentation on key creation above.)
+The workspace contains two projects, the Bitly library (BitlyLib) and a sample project that demonstrates usage of the library (BitlySample). Edit the sample project's applicationDidFinishLaunching method to include your bitly API keys. If you are supporting iOS 4.x, also include your twitter API keys (see documentation on key creation above.)
 
-####3) Build and run the BitlySample target. i
+####3) Build and run the BitlySample target.
 
-Verify that your keys are working properly by shortening links and tweeting.
+Select the BitlySample target (not BitlyLib!), and Build and Run the project. Verify that your keys are working properly by shortening links and tweeting.
 
 ####4) Add the Bitly Library to your own project 
 The build creates a folder called "Bitly" in the workspace, at BitlyLibrary/Bitly. Locate the Bitly folder in Finder and drag it into to your own project, selecting "Copy items into destination group's folder (if necessary)."
-
 
 Follow the directions under "Completing Setup", and "How to Use", below. 
 
@@ -218,5 +217,5 @@ Enter your bitly keys (and optionally twitter) api keys into the sample project.
 
 ####4) Get in touch
 
-If you continue to have problems, open an issue here: https://github.com/bitly/bitly\_ios\_sdk/issues. 
+If you continue to have problems, open an issue here: https://github.com/bitly/bitly\_ios\_sdk/issues. The author of this SDK would like to shamelessly plead for your patience on the basis of being 9 months pregnant when she wrote this, see http://bit.ly/vInTHE :)
 
