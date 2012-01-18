@@ -148,7 +148,7 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         viewController = [[BLYBitlyURLShortenerExample alloc] initWithNibName:@"BLYBitlyURLShortenerExample_iPhone" bundle:nil]; 
     } else if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        viewController = [[BLYBitlyURLShortenerExample alloc] initWithNibName:@"BLYBitlyURLShortenerExample)iPad" bundle:nil]; 
+        viewController = [[BLYBitlyURLShortenerExample alloc] initWithNibName:@"BLYBitlyURLShortenerExample_iPad" bundle:nil]; 
     }
     [self.navigationController pushViewController:viewController animated:YES];
 }

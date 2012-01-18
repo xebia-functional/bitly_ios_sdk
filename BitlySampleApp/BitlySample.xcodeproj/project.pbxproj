@@ -32,6 +32,7 @@
 		B13D342F146DA71F00014D91 /* BLYBitlyURLShortenerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = B13D342D146DA71F00014D91 /* BLYBitlyURLShortenerExample.m */; };
 		B13D3430146DA71F00014D91 /* BLYBitlyURLShortenerExample_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B13D342E146DA71F00014D91 /* BLYBitlyURLShortenerExample_iPhone.xib */; };
 		B163057B1472DBBE005AE82D /* libBitly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B163057A1472DBBE005AE82D /* libBitly.a */; };
+		B187659D14C73D97002EF7ED /* BLYBitlyURLShortenerExample_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B187659C14C73D97002EF7ED /* BLYBitlyURLShortenerExample_iPad.xib */; };
 		B19CCF49147576A000EDB90F /* BitlyServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = B19CCF48147576A000EDB90F /* BitlyServices.plist */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		B13D342D146DA71F00014D91 /* BLYBitlyURLShortenerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLYBitlyURLShortenerExample.m; sourceTree = "<group>"; };
 		B13D342E146DA71F00014D91 /* BLYBitlyURLShortenerExample_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLYBitlyURLShortenerExample_iPhone.xib; sourceTree = "<group>"; };
 		B163057A1472DBBE005AE82D /* libBitly.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBitly.a; path = "../../../../Library/Developer/Xcode/DerivedData/BitlySDK-dtbmjwvbiidkmufisqonfwuqfjgo/Build/Products/Debug-iphoneos/libBitly.a"; sourceTree = "<group>"; };
+		B187659C14C73D97002EF7ED /* BLYBitlyURLShortenerExample_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLYBitlyURLShortenerExample_iPad.xib; sourceTree = "<group>"; };
 		B19CCF48147576A000EDB90F /* BitlyServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BitlyServices.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +187,7 @@
 				B13D342A146D8C5D00014D91 /* BLYBitlyTextViewExample_iPad.xib */,
 				B13D342C146DA71F00014D91 /* BLYBitlyURLShortenerExample.h */,
 				B13D342D146DA71F00014D91 /* BLYBitlyURLShortenerExample.m */,
+				B187659C14C73D97002EF7ED /* BLYBitlyURLShortenerExample_iPad.xib */,
 				B13D342E146DA71F00014D91 /* BLYBitlyURLShortenerExample_iPhone.xib */,
 				B13D337114699B2100014D91 /* Supporting Files */,
 			);
@@ -267,6 +270,7 @@
 				B120C6B114C5F46C009C455E /* gear.png in Resources */,
 				B120C6CA14C6201B009C455E /* ios_app_icon_proto_114.png in Resources */,
 				B120C6CB14C6201B009C455E /* ios_app_icon_proto_57.png in Resources */,
+				B187659D14C73D97002EF7ED /* BLYBitlyURLShortenerExample_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

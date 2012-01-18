@@ -16,7 +16,7 @@
 - (IBAction)bitlyTextViewExample:(id)sender;
 - (IBAction)bitlyURLShortenerExample:(id)sender;
 
-@property(strong) BitlyTweetSheet *bitlyTweetSheet;
-@property(strong) UIPopoverController *popoverController;
+@property(strong, nonatomic) BitlyTweetSheet *bitlyTweetSheet;
+@property(strong, nonatomic) UIPopoverController *popoverController;
 
 @end
