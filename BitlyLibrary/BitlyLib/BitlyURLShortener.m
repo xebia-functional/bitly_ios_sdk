@@ -171,7 +171,7 @@
                  responseData:(NSDictionary *)data {
     
     BitlyLog(@"Bitly request succeeded for longURL %@, shortURL is %@", longURL, shortURLString); 
-    if ([self.delegate respondsToSelector:@selector(bitlyURLShortenerDidShortenURL:longURL:shortURL:)]) {
+    if ([self.delegate respondsToSelector:@selector(bitlyURLShortenerDidShortenURL:longURL:shortURLString:)]) {
         [self.delegate bitlyURLShortenerDidShortenURL:self longURL:longURL shortURLString:shortURLString];
     }
     
