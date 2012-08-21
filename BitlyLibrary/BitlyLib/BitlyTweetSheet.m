@@ -184,7 +184,7 @@
     [self setCharCount];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification 
-                                                      object:nil 
+                                                      object:self
                                                        queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
                                                            [self setAccounts];
                                                        }];
